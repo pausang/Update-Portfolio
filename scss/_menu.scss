@@ -11,7 +11,8 @@
         width: 28px;
         height: 3px;
         margin: 0 0 5px 0;
-        background: set-text-color ($primary-color);
+        background: #fff;//set-text-color
+        //($primary-color);
         @include easeOut;
     }
 
@@ -88,7 +89,7 @@
         height: 250px;
         background: url('../img/sangpi.jpg');
         border-radius: 50%;
-        border: solid 3px $secondary-color;
+        border: solid 2px $secondary-color;
     }
 }
 
@@ -113,7 +114,7 @@
     text-transform: uppercase;
     padding: 1rem 0;
     font-weight: 300;
-    color: set-text-color($primary-color);
+    color: #fff;//set-text-color($primary-color);
     text-decoration: none;
     @include easeOut;
 
@@ -128,6 +129,6 @@
 
 @for $x from 1 through 4 {
     .nav-item:nth-child(#{$x}) {
-        transition: $x * 0.1s;
+        transition-delay: $x * 0.1s;
     }
 }

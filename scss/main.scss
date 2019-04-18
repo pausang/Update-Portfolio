@@ -1,6 +1,6 @@
 @import 'config';
 @import 'menu';
-@import 'mobile';
+
 
 
 * {
@@ -11,9 +11,10 @@ body {
     @include background;
     background: $primary-color;
     color: set-text-color($primary-color);
+    //color: #fff;
     height: 100%;
     margin: 0;
-    font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.5;
 }
 
@@ -54,14 +55,15 @@ header {
 
 main {
     padding: 4rem;
-    height: 100%;
+   // height: 100%;
+   min-height: calc(100vh - 60px);
 
 
     .icons {
-        margin-top: 1rem;
+        margin-top: 2rem;
 
         a {
-            padding: 0.5rem;
+            padding: 0.9rem;
 
             &:hover {
                 color: $secondary-color;
@@ -83,10 +85,90 @@ main {
     grid-gap: 30px;
     grid-template-areas: 
     'bioimage bio bio';
+
     // 'job1 job2 job3';
-    grid-templete-columns: repeat(3, 1fr);
+    //grid-templete-columns: repeat(3, 1fr);
 }
 
 .bio-image {
     grid-area: bioimage
 }
+
+// work/Projects
+.projects {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+
+    img{
+        width: 100%;
+        border: 3px #fff solid;
+
+        &:hover {
+            opacity: 0.5;
+            border-color: $secondary-color;
+            @include easeOut;
+        }
+    }
+}
+// Contact Page
+
+.boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1rem;
+
+    div {
+        font-size: 2rem;
+        border: 3px #fff solid;
+        padding: 1.5rem 2.5rem;
+        margin-bottom: 3rem;
+        @include easeOut;
+
+        &:hover {
+            padding: 0.5rem 1.5rem;
+            background: $secondary-color;
+            color: set-text-color($secondary-color);
+            span {
+                color: set-text-color($secondary-color);
+            }
+        }
+    }
+}
+// Button Styles
+.btn {
+    display: block;
+    padding: 0.5rem 1rem;
+    border: 0;
+    margin-bottom: 0.3rem;
+    &:hover {
+        background: $secondary-color;
+        color: set-text-color
+        ($secondary-color);
+    }
+}
+
+.btn-dark {
+    @extend .btn;
+    background: darken($primary-color, 50);
+    color: #fff;
+}
+
+.btn-light {
+    @extend .btn;
+    background: lighten($primary-color, 50);
+    color: #fff;
+}
+
+
+#main-footer {
+    text-align: center;
+    padding: 1rem;
+    background: darken ($primary-color, 10);
+    color: set-text-color($primary-color);
+    height: 60px;
+
+}
+@import 'mobile';
